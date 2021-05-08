@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // setTimeout(()=>{
+        //     console.log('aaa')
+        // },1000)
+        // console.log('b')
+
+        // fetch('https://kktix.com/events.json')
+        // .then(res => res.json())
+        // .then(json => ('a'))
+
+        // console('b')
+        // // b先出現，因為抓資料一定會要時間
+
+
+// ******************************************************************
+// 不會跑出東西(是空的)
+        // let title =''    
+        // fetch('https://kktix.com/events.json')
+        // .then(res => res.json())
+        // .then(json => title = json.title)
+
+        // console.log(title)
+
+//  **************************************************************
+         // async function getData() {
+         //     // .....
+         // }
+
+
+        // const getData = async() =>{
+        //  let title ='' 
+        //  //  用 await 的時候一定要有 async
+        // //  await後面一定只能放 Promise
+        // // 等待 promise 完成後才繼續進行
+        //  await axios.get('https://kktix.com/events.json')
+        // .then(response => {
+        //     title = response.data.title
+        // })
+
+        // console.log(title)
+        // }
+        // getData()
+
+ //  **************************************************************
+
+       const getData =async () => {
+        try{
+            // 將promise的 .then 結果直接帶入變數
+            const response = await axios.get('https://kktix.com/events.json')
+            const json = await response.json()
+            title = response.json.title
+            console.log(title)
+        }catch(error){
+            // promise 的 catch 會跳到這裡
+            // 語法錯誤業會跳到這裡
+
+        }
+       }
+       getData()
+    </script>
+</body>
+</html>
